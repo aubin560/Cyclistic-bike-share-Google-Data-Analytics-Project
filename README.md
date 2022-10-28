@@ -86,7 +86,102 @@ I downloaded data from this <a href="https://drive.google.com/drive/folders/1upc
   </tr>
   </table>				
 
-	 	
+# DATA CLEANING DOCUMENTATION AND MANIPULATIONS
+
+I used spreadsheet to clean data
+
+Data cleaning verification checklist
+
+<table>
+  <tr>
+    <th>COMMON PROBLEMS</th>
+    <th>TOOL USED</th>
+    <th>OBSERVATION</th>
+  </tr>
+  <tr>
+    <td> Null data </td>
+    <td> Conditional formatting and filter </td>
+    <td> I found missing values in columns: start_station_name, start_station_id, end_station_name and end_station_id but I did not remove them because they represent a large part of the data </td>
+  </tr>
+  <tr>
+    <td> Misspelled words </td>
+    <td> Filter </td>
+    <td> I filtered the rideable_type column to check if the rideable types are well spelled. We have only three types that are: electric_bike, classic_bike and docked_bike.
+        I filtered the member_casual column to check if we only have two membership type that are member and casual </td>
+  </tr>
+  <tr>
+    <td> Mistyped numbers </td>
+    <td> Sort and filter </td>
+    <td> In the ride_id column most of ids have 16 characters. I removed all ids without 16 characters. 
+         In the ride_length new created column I removed all dates and times that are negative. </td>
+  </tr>
+  <tr>
+    <td> Mistyped numbers </td>
+    <td> Sort and filter </td>
+    <td> In the ride_id column most of ids have 16 characters. I removed all ids without 16 characters. 
+         In the ride_length new created column I removed all dates and times that are negative. Impacts on the number of rows in tables were as followed:
+
+         Total deleted rows: 4638 
+
+         In accordance with the rules found at https://www.divvybikes.com/system-data we have to 
+         remove all trips or rides less than 60 seconds in length. Trips less than 60 seconds in length are 
+         potentially false starts or users trying to re-dock a bike to ensure it was secure.
+
+         Impacts on the number of rows in tables were as followed:
+
+
+         The Total number of rows deleted 99508 (1.6% of the total rows 5895758) </td>
+  </tr>
+  <tr>
+    <td> Extra spaces and characters </td>
+    <td> Trim function </td>
+    <td> I removed extra spaces in all the dataset </td>
+  </tr>
+<tr>
+    <td> Duplicates </td>
+    <td> Remove duplicate function </td>
+    <td> I found no duplicated data </td>
+ </tr>
+<tr>
+    <td> Mismatched data types </td>
+    <td>------</td>
+    <td> I corrected data types </td>
+</tr>
+<tr>
+    <td> Messy(inconsistent) string </td>
+    <td>------</td>
+    <td> No inconsistent string </td>
+</tr>
+
+<tr>
+    <td> Messy (inconsistent) data formats </td>
+    <td>------</td>
+    <td> Inconsistent data format in the start_station_id and end_station_id </td>
+  </tr>
+
+<tr>
+    <td> Misleading variable labels (columns) </td>
+    <td> ------ </td>
+    <td> I combined “started at” and “ended at” column into “route” with a to as separator. 
+I changed “member_casual” into customer_type </td>
+</tr>
+<tr>
+    <td> Business Logic </td>
+    <td> ------ </td>
+    <td> My data make sense to answer the business question. </td>
+  </tr>
+  </table>
+
+		
+		
+		
+
+
+
+
+
+
+
 
 
 
