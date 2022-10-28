@@ -751,7 +751,7 @@ The average ride length of casual riders is higher than the average ride length 
 
 #### Average ride length by customers on the days of the week
 
-[daily_avg_ride_length](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/daily_avg_ride_length.png)
+![daily_avg_ride_length](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/daily_avg_ride_length.png)
 
 The average ride length of members has a uniform distribution of 12 minutes in working days and 14 minutes in weekends.
 
@@ -765,11 +765,11 @@ To answer the question we will try to find out the routes that are the most popu
 
 #### Most common routes used by annual members
 
-[number_most_routes](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/member_most_route.png)
+![number_most_routes](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/member_most_route.png)
 
 #### Most common routes used by casual riders
 
-[casual_most_routes](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/casual_most_routes.png)
+![casual_most_routes](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/casual_most_routes.png)
 
 ## CONCLUSION
 
