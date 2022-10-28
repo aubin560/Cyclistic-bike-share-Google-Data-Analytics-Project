@@ -119,19 +119,10 @@ Data cleaning verification checklist
     <td> Mistyped numbers </td>
     <td> Sort and filter </td>
     <td> In the ride_id column most of ids have 16 characters. I removed all ids without 16 characters. 
-         In the ride_length new created column I removed all dates and times that are negative. Impacts on the number of rows in tables were as followed:
-
-         Total deleted rows: 4638 
-
-         In accordance with the rules found at https://www.divvybikes.com/system-data we have to 
-         remove all trips or rides less than 60 seconds in length. Trips less than 60 seconds in length are 
-         potentially false starts or users trying to re-dock a bike to ensure it was secure.
-        
-	    Impacts on the number of rows in tables were as followed:
-        
-	    The Total number of rows deleted 99508 (1.6% of the total rows 5895758) 
-   
-  </tr>
+         In the ride_length new created column I removed all dates and times that are negative. Impacts on the number of rows in tables were as followed: 
+	    Total deleted rows: 4638 
+	    In accordance with the rules found at https://www.divvybikes.com/system-data we have to remove all trips or rides less than 60 seconds in length. Trips less than 60 seconds in length are potentially false starts or users trying to re-dock a bike to ensure it was secure. Impacts on the number of rows in tables were as followed: The Total number of rows deleted 99508 (1.6% of the total rows 5895758) </td>
+ </tr>
   <tr>
     <td> Extra spaces and characters </td>
     <td> Trim function </td>
