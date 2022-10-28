@@ -569,7 +569,7 @@ WHERE
 customer_type = "member"
 GROUP BY day_of_week
 ~~~~
-the result:
+The result:
 
 <table>
   <tr>
@@ -613,4 +613,118 @@ the result:
 
 I used the query below to get the  average ride length for casual riders on the days of the week
 
+~~~~sql
+SELECT  
+  day_of_week,
+  round(avg(cast(ride_length as int64))) as casual_avg_ride_length
+FROM `revision-359107.full_year.full_year`
+WHERE 
+customer_type = "casual"
+GROUP BY day_of_week
+~~~~
 
+The result:
+
+<table>
+  <tr>
+    <th>day_of_week</th>
+    <th>casual_avg_ride_length</th>
+       
+  </tr>
+  <tr>
+    <td>Monday</td>
+    <td>31</td>
+        
+  </tr>
+  <tr>
+    <td>Tuesday</td>
+    <td>27</td>
+    
+  </tr>
+  <tr>
+    <td>Wednesday</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>Thursday</td>
+    <td>27</td>
+  </tr>
+  <tr>
+    <td>Friday</td>
+    <td>28</td>
+    
+  </tr>
+  <tr>
+    <td>Saturday</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>Sunday</td>
+    <td>34</td>
+  </tr>
+	
+</table>
+
+Joining the two previous tables  with this query:
+
+~~~~sql
+SELECT  
+    `revision-359107.full_year.member_ride_length_by_day_of_the_week`. day_of_week,
+    `revision-359107.full_year.member_ride_length_by_day_of_the_week`. member_avg_ride_length,
+    `revision-359107.full_year.casual_ride_length_by_day_of_the_week` . casual_avg_ride_length
+
+FROM `revision-359107.full_year.member_ride_length_by_day_of_the_week` LEFT JOIN
+`revision-359107.full_year.casual_ride_length_by_day_of_the_week` ON
+`revision-359107.full_year.member_ride_length_by_day_of_the_week`.day_of_week = `revision-359107.full_year.casual_ride_length_by_day_of_the_week` . day_of_week
+
+~~~~
+
+The result:
+
+<table>
+  <tr>
+    <th>day_of_week</th>
+    <th>member_avg_ride_length</th>
+    <th>casual_avg_ride_length</th>
+       
+  </tr>
+  <tr>
+    <td>Monday</td>
+    <td>12</td>
+    <td>31</td>
+        
+  </tr>
+  <tr>
+    <td>Tuesday</td>
+    <td>12</td>
+    <td>27</td>
+    
+  </tr>
+  <tr>
+    <td>Wednesday</td>
+    <td>12</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>Thursday</td>
+    <td>12</td>
+    <td>27</td>
+  </tr>
+  <tr>
+    <td>Friday</td> 
+    <td>12</td>
+    <td>28</td>
+    
+  </tr>
+  <tr>
+    <td>Saturday</td> 
+    <td>14</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>Sunday</td>
+    <td>14</td>
+    <td>34</td>
+  </tr>
+	
+</table>
