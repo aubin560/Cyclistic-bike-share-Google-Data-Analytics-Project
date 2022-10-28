@@ -735,5 +735,4 @@ The result:
 
 #### The Total number of rides by customer type
 
-
-
+![number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/number_rides.png)
