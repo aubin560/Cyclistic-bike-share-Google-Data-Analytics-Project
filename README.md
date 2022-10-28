@@ -165,30 +165,26 @@ I changed “member_casual” into customer_type </td>
 
 
 #### Data manipulation
-<table>
-	<tr>
-		<th>I concatenated the column start_station_name and the end_station_name to make one column called route. With “to” as separator. After concatenation, the cells with only “to” in the route column were replaced by no_given_route. In the route column cells that start with “to” indicates data points with no start_station_name and with “to” at the end indicate data points with no end_station_name. </th>
-	</tr>
-	<tr>
-		<td>Manipulation of data to create new columns that are important to answer questions.
+
+I concatenated the column start_station_name and the end_station_name to make one column called route. With “to” as separator. After concatenation, the cells with only “to” in the route column were replaced by no_given_route. In the route column cells that start with “to” indicates data points with no start_station_name and with “to” at the end indicate data points with no end_station_name. 
+
+
+Manipulation of data to create new columns that are important to answer questions.
 We are going to answer the question: How do annual members and casual riders use cyclistic bikes differently?
 We want to discover information about the ride_length of members and casual riders and we also want to know how the members and casual riders use cyclistic bikes in the days of the week and in months of the year
- </td>
-	</tr>
-	<tr>
-		<td>Organizing data into metrics 
+
+
+Organizing data into metrics 
 Ride_length = ended_at – started_at 
-I put the ride_length column in the hh:mm: ss format. Then I use the INT(number*1440) to change the date format into minutes in the number format so that I will be able to make the average of the ride_length column.</td>
-        
-	</tr>
-	
-	<tr>
-		<td>Creation of the new column called day_of_week: to get this column we applied the function WEEKDAY () on the started_at column. Then with the “Find and replace” tool I replaced days of the week that were given in number into text. Example: 2 for Monday and 6 for Friday. </td>
-	</tr>
-	<tr>
-		<td>Creation of another column called month_of_year: to get this column we applied the function TEXT (array,” mmmm”), the array is nothing else than the started_at column. </td>
-	</tr>
-</table>
+I put the ride_length column in the hh:mm: ss format. Then I use the INT(number*1440) to change the date format into minutes in the number format so that I will be able to make the average of the ride_length column.
+
+
+Creation of the new column called day_of_week: to get this column we applied the function WEEKDAY () on the started_at column. Then with the “Find and replace” tool I replaced days of the week that were given in number into text. Example: 2 for Monday and 6 for Friday. 
+
+
+Creation of another column called month_of_year: to get this column we applied the function TEXT (array,” mmmm”), the array is nothing else than the started_at column. 
+
+
 
 		
 		
