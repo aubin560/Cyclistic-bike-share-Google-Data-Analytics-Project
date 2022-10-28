@@ -310,11 +310,11 @@ The result:
   </tr>
   <tr>
     <td>member</td>
-    <td>casual/td>
+    <td>3278087</td>
     
   </tr>
   <tr>
-    <td>3278087</td>
+    <td>casual</td>
     <td>2518009</td>
   </tr>
 </table>
