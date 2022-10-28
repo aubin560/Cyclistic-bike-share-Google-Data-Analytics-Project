@@ -609,7 +609,7 @@ the result:
     <td>14</td>
   </tr>
 	
-</table)
+</table>
 
 I used the query below to get the  average ride length for casual riders on the days of the week
 
