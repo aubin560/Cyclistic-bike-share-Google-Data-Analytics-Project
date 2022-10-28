@@ -126,12 +126,11 @@ Data cleaning verification checklist
          In accordance with the rules found at https://www.divvybikes.com/system-data we have to 
          remove all trips or rides less than 60 seconds in length. Trips less than 60 seconds in length are 
          potentially false starts or users trying to re-dock a bike to ensure it was secure.
-
-         Impacts on the number of rows in tables were as followed:
-
-
-         The Total number of rows deleted 99508 (1.6% of the total rows 5895758) 
-    </td>
+        
+	    Impacts on the number of rows in tables were as followed:
+        
+	    The Total number of rows deleted 99508 (1.6% of the total rows 5895758) 
+   
   </tr>
   <tr>
     <td> Extra spaces and characters </td>
