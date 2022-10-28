@@ -130,7 +130,8 @@ Data cleaning verification checklist
          Impacts on the number of rows in tables were as followed:
 
 
-         The Total number of rows deleted 99508 (1.6% of the total rows 5895758) </td>
+         The Total number of rows deleted 99508 (1.6% of the total rows 5895758) 
+    </td>
   </tr>
   <tr>
     <td> Extra spaces and characters </td>
