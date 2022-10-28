@@ -11,7 +11,9 @@ The finance analysts have concluded that annual members are much more profitable
 
 ## DESCRIPTION OF DATA SOURCE
 
-I downloaded data from this <a href="https://drive.google.com/drive/folders/1upc0vzD-xtbLi8l91PjZOR0Ui9FQktiJ?usp=sharing">link</a> and stored it in my computer hard drive. I will use this data to explore how different customers types are using the Cyclistic bikes from July 2021 to June 2022. The data has been made available by Motivate internal Inc. under this <a href="https://ride.divvybikes.com/data-license-agreement">license</a>. The data include the following column headers: ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name. end_station_id, start_lat, start_lng, end_lat, end_lng, and member_casual. Below is a description of each column header and sample values.
+I downloaded data from this <a href="https://drive.google.com/drive/folders/1upc0vzD-xtbLi8l91PjZOR0Ui9FQktiJ?usp=sharing">link</a> and stored it in my computer hard drive. I will use this data to explore how different customers types are using the Cyclistic bikes from July 2021 to June 2022. The data has been made available by Motivate internal Inc. under this <a href="https://ride.divvybikes.com/data-license-agreement">license</a>. The data include the following column headers: ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name. end_station_id, start_lat, start_lng, end_lat, end_lng, and member_casual. 
+
+Below is a description of each column header and sample values.
 
 <table>
   <tr>
@@ -733,6 +735,8 @@ The result:
 
 ## SUPPORTING VISUALIZATION AND KEY FINDINGING 
 
+I used Tableau Public for data visualization 
+
 #### The Total number of rides by customer type
 
 ![number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/number_rides.png)
@@ -741,13 +745,13 @@ The result:
 
 #### Monthly average ride lngth by customer type
 
-![number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/monthly_avg_ride_length.png)
+![monthly_average ride length](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/monthly_avg_ride_length.png)
 
 The average ride length of casual riders is higher than the average ride length of members.
 
 #### Average ride length by customers on the days of the week
 
-[number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/daily_avg_ride_length.png)
+[daily_avg_ride_length](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/daily_avg_ride_length.png)
 
 The average ride length of members has a uniform distribution of 12 minutes in working days and 14 minutes in weekends.
 
@@ -761,11 +765,11 @@ To answer the question we will try to find out the routes that are the most popu
 
 #### Most common routes used by annual members
 
-[number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/member_most_route.png)
+[number_most_routes](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/member_most_route.png)
 
 #### Most common routes used by casual riders
 
-[number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/casual_most_routes.png)
+[casual_most_routes](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/casual_most_routes.png)
 
 ## CONCLUSION
 
