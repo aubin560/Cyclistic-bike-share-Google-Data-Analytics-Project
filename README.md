@@ -736,3 +736,6 @@ The result:
 #### The Total number of rides by customer type
 
 ![number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/number_rides.png)
+
+57% of the total number of rides was for members (3,338,646) while 43% for casual (2,557,1000).
+
