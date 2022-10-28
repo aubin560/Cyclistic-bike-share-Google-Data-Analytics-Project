@@ -553,3 +553,64 @@ the result:
     <td>23</td>
 </tr>
 </table>
+
+
+Third question to be answered:
+
+What is the average ride length by customers on the days of a week?
+
+I used the query below to get the  average ride length for members on the days of the week
+~~~~sql
+SELECT  
+  day_of_week,
+  round(avg(cast(ride_length as int64))) as member_avg_ride_length
+FROM `revision-359107.full_year.full_year`
+WHERE 
+customer_type = "member"
+GROUP BY day_of_week
+~~~~
+the result:
+
+<table>
+  <tr>
+    <th>day_of_week</th>
+    <th>member_avg_ride_length</th>
+       
+  </tr>
+  <tr>
+    <td>Monday</td>
+    <td>12</td>
+        
+  </tr>
+  <tr>
+    <td>Tuesday</td>
+    <td>12</td>
+    
+  </tr>
+  <tr>
+    <td>Wednesday</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>Thursday</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>Friday</td>
+    <td>12</td>
+    
+  </tr>
+  <tr>
+    <td>Saturday</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>Sunday</td>
+    <td>14</td>
+  </tr>
+	
+</table)
+
+I used the query below to get the  average ride length for casual riders on the days of the week
+
+
