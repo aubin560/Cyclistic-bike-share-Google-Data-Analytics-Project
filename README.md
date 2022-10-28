@@ -301,22 +301,23 @@ GROUP BY
 
 The result:
 
-<table>
-	<tr>
-		<th> customer_type </th>
-		<th> number_of_rides </th>
-	</tr>
-	
-	<tr>
-		<td>member</td>
-		<td>casual</td>
-	</tr>
-	<tr>
-		<td>3278087</td>
-		<td>2518009</td>
-	</tr>
-</table>
 
+<table>
+  <tr>
+    <th>customer_type</th>
+    <th>number_of_rides</th>
+    
+  </tr>
+  <tr>
+    <td>member</td>
+    <td>casual/td>
+    
+  </tr>
+  <tr>
+    <td>3278087</td>
+    <td>2518009</td>
+  </tr>
+</table>
 Second question to be answered:
 
 What is the monthly average ride length by customer type?
