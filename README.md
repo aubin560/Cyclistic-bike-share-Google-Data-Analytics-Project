@@ -231,17 +231,109 @@ SELECT * FROM `revision-359107.tripdata.202206-divvy-tripdata`
 
 ~~~~
 
-
+The query result was saved in table called full_year_data
 		
-		
-		
+For tripdata_geo		
+~~~~sql
+SELECT * FROM `revision-359107.tripdata_geo.2021_07_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2021_08_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2021_09_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2021_10_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2021_11_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2021_12_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2022_01_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2022_02_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2022_03_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2022_04_sd` 
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2022_05_sd`
+UNION ALL
+SELECT * FROM `revision-359107.tripdata_geo.2022_06_sd` 
+~~~~		
+The query result was saved in table called full_year_sd
+
+Now it’s time to join the two tables full_year_data and full_year_sd using the join statement. I used this query
+
+~~~~sql
+SELECT  
+`revision-359107.tripdata_geo.full_year_sd`. ride_id,
+`revision-359107.tripdata.full_year_data`. rideable_type,
+`revision-359107.tripdata_geo.full_year_sd`. start_lat,
+`revision-359107.tripdata_geo.full_year_sd`. route,
+`revision-359107.tripdata_geo.full_year_sd`. start_lng,
+`revision-359107.tripdata_geo.full_year_sd`. end_lat,
+`revision-359107.tripdata_geo.full_year_sd`. end_lng,
+`revision-359107.tripdata.full_year_data`. customer_type,
+`revision-359107.tripdata.full_year_data`. ride_length,
+`revision-359107.tripdata.full_year_data`. day_of_week,
+`revision-359107.tripdata.full_year_data`. month_of_year
 
 
+FROM `revision-359107.tripdata_geo.full_year_sd` JOIN `revision-359107.tripdata.full_year_data` ON
+`revision-359107.tripdata_geo.full_year_sd`. ride_id = `revision-359107.tripdata.full_year_data`.ride_id
+~~~~
+
+I named the joined table full_year in a new dataset also called full_year. The full_year table is the table that will be used in order to answer the questions. 
 
 
+First question to be answered:
 
+What is the total number of rides by customer type?
 
+~~~~sql
+SELECT
+    customer_type,
+    count(ride_id) as number_of_rides
+FROM 
+    `revision-359107.full_year.full_year` 
+GROUP BY 
+    customer_type
+~~~~
 
+The result:
+
+<table>
+	<tr>
+		<th> customer_type </th>
+		<th> number_of_rides </th>
+	</tr>
+	
+	<tr>
+		<td>member</td>
+		<td>casual</td>
+	</tr>
+	<tr>
+		<td>3278087</td>
+		<td>2518009</td>
+	</tr>
+</table>
+
+Second question to be answered:
+
+What is the monthly average ride length by customer type?
+
+I used this query to get the monthly average ride length for members:
+
+~~~~sql
+SELECT
+    month_of_year,
+    round(avg(cast(ride_length as int64))) as member_avg_ride_length,
+FROM 
+    `revision-359107.full_year.full_year`
+WHERE
+     customer_type = "member"
+
+GROUP BY month_of_year
+~~~~
 
 
 
