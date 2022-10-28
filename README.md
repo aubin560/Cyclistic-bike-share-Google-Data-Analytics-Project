@@ -318,6 +318,7 @@ The result:
     <td>2518009</td>
   </tr>
 </table>
+
 Second question to be answered:
 
 What is the monthly average ride length by customer type?
@@ -336,5 +337,219 @@ WHERE
 GROUP BY month_of_year
 ~~~~
 
+the result:
 
+<table>
+  <tr>
+    <th>month_of_year</th>
+    <th>member_avg_ride_length</th>
+    
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>12</td>
+    
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>11</td>
+  </tr>
+  <tr>
+    <td>March</td>
+    <td>12</td>
+  </tr>
+<tr>
+    <td>April</td>
+    <td>11</td>
+  </tr>
+<tr>
+    <td>May</td>
+    <td>13</td>
+  </tr>
+<tr>
+    <td>June</td>
+    <td>14</td>
+  </tr>
+<tr>
+    <td>July</td>
+    <td>14</td>
+  </tr>
+<tr>
+    <td>August</td>
+    <td>14</td>
+  </tr>
+<tr>
+    <td>September</td>
+    <td>13</td>
+</tr>
+<tr>
+    <td>October</td>
+    <td>12</td>
+</tr>
+<tr>
+    <td>November</td>
+    <td>11</td>
+  </tr>
+<tr>
+    <td>December</td>
+    <td>11</td>
+  </tr>
+</table>
 
+I used this query to get the monthly average ride length for casual riders
+
+~~~~sql
+SELECT
+    month_of_year,
+    round(avg(cast(ride_length as int64))) as casual_avg_ride_length,
+FROM 
+    `revision-359107.full_year.full_year`
+WHERE
+     customer_type = "casual"
+
+GROUP BY month_of_year
+~~~~
+the result:
+
+<table>
+  <tr>
+    <th>month_of_year</th>
+    <th>casual_avg_ride_length</th>
+    
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>31</td>
+    
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>27</td>
+  </tr>
+  <tr>
+    <td>March</td>
+    <td>33</td>
+  </tr>
+<tr>
+    <td>April</td>
+    <td>30</td>
+  </tr>
+<tr>
+    <td>May</td>
+    <td>31</td>
+  </tr>
+<tr>
+    <td>June</td>
+    <td>32</td>
+  </tr>
+<tr>
+    <td>July</td>
+    <td>33</td>
+  </tr>
+<tr>
+    <td>August</td>
+    <td>29</td>
+  </tr>
+<tr>
+    <td>September</td>
+    <td>28</td>
+</tr>
+<tr>
+    <td>October</td>
+    <td>29</td>
+</tr>
+<tr>
+    <td>November</td>
+    <td>23</td>
+  </tr>
+<tr>
+    <td>December</td>
+    <td>23</td>
+  </tr>
+</table>
+
+Joining the two tables with this query:
+
+~~~~sql
+SELECT  
+    `revision-359107.full_year.Monthly_avg_ride_length_for_casual` . month_of_year,
+    `revision-359107.full_year.Monthly_avg_ride_length_for_members`. member_avg_ride_length,
+    `revision-359107.full_year.Monthly_avg_ride_length_for_casual` . casual_avg_ride_length
+
+FROM 
+    `revision-359107.full_year.Monthly_avg_ride_length_for_casual` JOIN `revision-359107.full_year.Monthly_avg_ride_length_for_members` 
+
+ON `revision-359107.full_year.Monthly_avg_ride_length_for_casual` . month_of_year = `revision-359107.full_year.Monthly_avg_ride_length_for_members`. month_of_year
+
+~~~~
+the result:
+
+<table>
+  <tr>
+    <th>month_of_year</th>
+    <th>member_avg_ride_length</th>
+    <th>casual_avg_ride_length</th>
+    
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>12</td>
+    <td>31</td>
+    
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>11</td>
+    <td>27</td>
+  </tr>
+  <tr>
+    <td>March</td>
+    <td>12</td>
+    <td>33</td>
+  </tr>
+<tr>
+    <td>April</td>
+    <td>11</td>
+    <td>30</td>
+  </tr>
+<tr>
+    <td>May</td>
+    <td>13</td>
+    <td>31</td>
+  </tr>
+<tr>
+    <td>June</td>
+    <td>14</td>
+    <td>32</td>
+  </tr>
+<tr>
+    <td>July</td>
+    <td>14</td>
+    <td>33</td>
+  </tr>
+<tr>
+    <td>August</td>
+    <td>14</td>
+    <td>29</td>
+  </tr>
+<tr>
+    <td>September</td>
+    <td>13</td>
+    <td>28</td>
+</tr>
+<tr>
+    <td>October</td>
+    <td>12</td>
+    <td>29</td>
+</tr>
+<tr>
+    <td>November</td>
+    <td>11</td>
+    <td>23</td>
+  </tr>
+<tr>
+    <td>December</td>
+    <td>11</td>
+    <td>23</td>
+</tr>
+</table>
