@@ -739,3 +739,54 @@ The result:
 
 57% of the total number of rides was for members (3,338,646) while 43% for casual (2,557,1000).
 
+#### Monthly average ride lngth by customer type
+
+![number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/monthly_avg_ride_length.png)
+
+The average ride length of casual riders is higher than the average ride length of members.
+
+#### Average ride length by customers on the days of the week
+
+[number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/daily_avg_ride_length.png)
+
+The average ride length of members has a uniform distribution of 12 minutes in working days and 14 minutes in weekends.
+
+In statistics, uniform distribution refers to a type of probability distribution in which all outcomes are equally likely
+
+The average ride length of casual rides has a non uniform distribution neither in working days nor in weekends
+
+Why do members have a uniform ride length distribution and casual riders don’t?
+
+To answer the question we will try to find out the routes that are the most popular with different user type
+
+#### Most common routes used by annual members
+
+[number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/member_most_route.png)
+
+#### Most common routes used by casual riders
+
+[number_of_rides](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/casual_most_routes.png)
+
+## CONCLUSION
+
+Casual riders spend much more time on the bike than the annual member while 57% of the total number of rides was for members and 43% for casual. 
+
+The average ride length of members is 12 minutes in working days and 14 minutes in weekends. The average ride length of casual rides has a non uniform distribution neither in working days nor in weekends
+
+Members use the bikes for specific destinations with a clear route while Most of casual riders don’t have specific destination. Their  ride lengths are longer but with no destination or no route, starting stations are also ending stations. This is how annual members and casual riders use the cyclistic bike share differently. 
+
+## RECOMMENDATIONS
+
+The Cyclistic bike share company has to lunch the advertisment compaign accross the top ten most routes used by casual riders.
+
+The company has to emphasis more on the station called Streeter Dr & Grand Ave because among the stations that compose the ten most routes used by casual riders, the station is six times eigther s starting station or ending station.
+
+
+
+
+
+
+
+
+
+
