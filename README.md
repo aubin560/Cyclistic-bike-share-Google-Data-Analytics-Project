@@ -1,15 +1,15 @@
-# CYCLISTIC-BIKE-SHARE-GOOGLE-DATA-ANALYTICS-PROJECT
+## CYCLISTIC-BIKE-SHARE-GOOGLE-DATA-ANALYTICS-PROJECT
 <img src="https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Divvy_Pricing_SingleRide_1200x960.jpg" alt="Cyclistic" style="width:80%;height:20%" >
 
-# SCENARIO
+## SCENARIO
 
 You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations.
 
-# BUSINESS TASK
+## BUSINESS TASK
 
 The finance analysts have concluded that annual members are much more profitable than casual riders. The marketing department believes that the company future success depends on maximizing the number of annual members rather than creating campaign that targets all new customers. Cyclistic marketing analytics team has the responsibility of understanding how do annual members and casual riders use Cyclistic bikes differently. From these insights, Cyclistic marketing analytics team will design a new marketing strategy to convert casual riders into annual members. 
 
-# DESCRIPTION OF DATA SOURCE
+## DESCRIPTION OF DATA SOURCE
 
 I downloaded data from this <a href="https://drive.google.com/drive/folders/1upc0vzD-xtbLi8l91PjZOR0Ui9FQktiJ?usp=sharing">link</a> and stored it in my computer hard drive. I will use this data to explore how different customers types are using the Cyclistic bikes from July 2021 to June 2022. The data has been made available by Motivate internal Inc. under this <a href="https://ride.divvybikes.com/data-license-agreement">license</a>. The data include the following column headers: ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name. end_station_id, start_lat, start_lng, end_lat, end_lng, and member_casual. Below is a description of each column header and sample values.
 
@@ -86,7 +86,7 @@ I downloaded data from this <a href="https://drive.google.com/drive/folders/1upc
   </tr>
   </table>				
 
-# DATA CLEANING DOCUMENTATION AND MANIPULATIONS
+## DATA CLEANING DOCUMENTATION AND MANIPULATIONS
 
 I used spreadsheet to clean data
 
@@ -184,6 +184,52 @@ Creation of the new column called day_of_week: to get this column we applied the
 
 Creation of another column called month_of_year: to get this column we applied the function TEXT (array,” mmmm”), the array is nothing else than the started_at column. 
 
+## SUMMARY OF THE ANALYSIS
+
+I used SQL bigqueries for my analysis
+
+Reminder of the Business Task: Understand how do annual member and casual riders use the Cyclistic bike differently?
+In order to understand this question just above we need to discover information about these questions:
+
+- What is the total number of rides by customer type?
+- What is the monthly average ride length by customer type?
+- What is the average ride length by customers on the days of a week?
+
+Before answering these questions, I passed through some steps:
+
+Step 1: Data importation 
+
+I had 12 big files (the twelve files refer to the twelve months) to upload on Bigquery some files were higher than 100MB while I can’t upload a file from the local server that is higher than 100MB so I decided to divide each file into two subfiles and then joining them together once uploaded in the Bigquery with the joins statement. 
+
+After uploading the data, I had two datasets with 12 tables each. I named the two datasets: tripdata and tripdata_geo (geo for geographic information) 
+Before using the join statement. I first union all the months into a single year for both datasets
+For the Tripdata dataset: 
+~~~~sql
+SELECT * FROM `revision-359107.tripdata.202107-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202108-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202109-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202110-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202111-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202112-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202201-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202202-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202203-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202204-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202205-divvy-tripdata` 
+UNION ALL 
+SELECT * FROM `revision-359107.tripdata.202206-divvy-tripdata` 
+
+~~~~
 
 
 		
