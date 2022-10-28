@@ -284,6 +284,7 @@ FROM `revision-359107.tripdata_geo.full_year_sd` JOIN `revision-359107.tripdata.
 
 I named the joined table full_year in a new dataset also called full_year. The full_year table is the table that will be used in order to answer the questions. 
 
+Step 2: Answering questions
 
 First question to be answered:
 
@@ -728,3 +729,11 @@ The result:
   </tr>
 	
 </table>
+
+
+## SUPPORTING VISUALIZATION AND KEY FINDINGING 
+
+#### The Total number of rides by customer type
+
+
+
