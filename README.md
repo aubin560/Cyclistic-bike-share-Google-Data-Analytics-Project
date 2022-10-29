@@ -743,7 +743,7 @@ I used Tableau Public for data visualization
 
 57% of the total number of rides was for members (3,338,646) while 43% for casual (2,557,1000).
 
-#### Monthly average ride lngth by customer type
+#### Monthly average ride length by customer type
 
 ![monthly_average ride length](https://github.com/aubin560/Cyclistic-bike-share-Google-Data-Analytics-Project/blob/main/Charts/monthly_avg_ride_length.png)
 
